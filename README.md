@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+📝 React Contact Form with Formcarry
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully functional, production-ready Contact Form built in React with Formcarry integration and dark mode support.
 
-Currently, two official plugins are available:
+This project demonstrates frontend form validation, API integration, and modern UX best practices using React and Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚡ Features
+Form Validation:
+Name ≥ 3 characters
+Valid email address
+Message ≥ 15 characters
 
-## React Compiler
+API Integration with Formcarry:
+Submits form data directly to Formcarry
+Handles success, validation errors, and network errors
+User Experience:
+Success and error messages
+Dark mode toggle
+Form resets only after successful submission
+Production Considerations:
+Async/await API handling
+Loading state optional for better UX
+Environment variable for API URL (VITE_API_URL)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+📦 Installation
+1. Clone the repository
 
-## Expanding the ESLint configuration
+git clone https://github.com/lifeonthecode/Contact-Form-With-Formcarry.git
+cd react-formcarry-contact
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. Install dependencies
+npm install
+# or
+yarn install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. Setup environment variables
+Create a .env.local file in the project root:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+VITE_API_URL=https://formcarry.com/s/your-form-id
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Replace your-form-id with your Formcarry form ID.
+
+Usage
+Run locally
+
+npm run dev
+# or
+yarn dev
+
+
+Open http://localhost:5173 to view in the browser.
+Toggle Dark Mode with the switch in the top-right corner.
+Fill out the form and click Send to submit to Formcarry.
+
+Production Deployment
+Build the project:
+
+npm run build
+# or
+yarn build
+
+Deploy to Vercel or any static hosting provider.
+
+Vercel Setup:
+Add environment variable in the dashboard:
+VITE_API_URL = https://formcarry.com/s/your-form-id
+
+Push your code to GitHub and connect your repository to Vercel.
+
+💡 Tips
+Test your Formcarry integration using a professional test message before going live.
+Always validate data server-side; frontend validation is for UX only.
+Optional: Add a loading spinner when the form is submitting.
+
+🎨 Technologies Used
+React 18
+TypeScript
+Tailwind CSS
+Formcarry API
+Vite
+
+📄 License
+
+This project is open source under the MIT License
